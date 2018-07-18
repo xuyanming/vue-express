@@ -1,0 +1,87 @@
+{
+  "router_zh": [
+    {
+      "name": "login",
+      "path": "/login",
+      "hidden": true,
+      "meta": { "title": "登录","icon": "" }
+    },
+    {
+    "path": "/table",
+    "name": "table",
+    "meta": {
+        "title": "表格",
+        "icon": "el-icon-menu"
+    },
+    "component":"Layout",
+    "children": [
+        { 
+        "path": "tableone",  
+        "name": "tableone", 
+        "meta": { "title": "单元格合并","icon": "el-icon-menu" }
+        },
+        { 
+        "path": "tabletwo",  
+        "name": "tabletwo", 
+        "meta": { "title": "表格树", "icon": "el-icon-menu"}
+        },
+        { 
+        "path": "tablerank",  
+        "name": "tablerank", 
+        "meta": { "title": "拖拽", "icon": "el-icon-rank"}
+        },
+        { 
+            "path": "tabletree",  
+            "name": "tabletree", 
+            "meta": { "title": "表格二", "icon": "el-icon-menu"},
+            "component":"tabletree",
+            "children": [
+                { 
+                "path": "tabletree1",  
+                "name": "tabletree1", 
+                "meta": { "title": "表格二1","icon": "el-icon-menu" }
+                },
+                { 
+                "path": "tabletree2",  
+                "name": "tabletree2", 
+                "meta": { "title": "表格二2","icon": "el-icon-menu" }
+                }
+            ]
+        }
+    ]
+    },
+    {
+        "path": "/calendar",
+        "name": "calendar",
+        "meta": {
+            "title": "日历",
+            "icon": "el-icon-date"
+        },
+        "component":"Layout",
+        "children": [
+            { 
+            "path": "calendarExample",  
+            "name": "calendarExample", 
+            "meta": { "title": "日历","icon": "el-icon-date" }
+            }
+        ]
+    },
+    {
+        "path": "/map",
+        "name": "map",
+        "meta": {
+            "title": "地图",
+            "icon": "el-icon-location"
+        },
+        "component":"Layout",
+        "children": [
+            { 
+            "path": "mapExample",  
+            "name": "mapExample", 
+            "meta": { "title": "地图","icon": "el-icon-location" }
+            }
+        ]
+    }
+  ]
+}
+  
