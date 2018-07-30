@@ -16,16 +16,12 @@ app.all('*', function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
     res.header("Access-Control-Allow-Headers", "Content-Type, access_token, X-Requested-With")
-    // res.header("Content-Type", "application/json;charset=utf-8");
-    console.log(req.originalUrl,'11111')
     if(rouetpass.indexOf(req.originalUrl) > -1 || req.originalUrl.split('/').indexOf('static') > -1){
-
         next()
     }else{
         if (req.method != "OPTIONS"){
             var accesstoken = req.headers['access_token'];
             let datatoken = token.decodeToken(accesstoken)
-            // console.log(data)
             if(datatoken.flag){
                 next()
             }else{
@@ -37,20 +33,20 @@ app.all('*', function(req, res, next) {
         }
     }
 });
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+// app.set('views', path.join(__dirname, 'views'));
+// app.set('view engine', 'jade');
 
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-// app.get('/*', function (req, res) {
-//     res.sendFile(path.resolve(__dirname, 'public',"index.html"));
-// });
+app.get('/', function (req, res) {
+     res.sendFile(path.resolve(__dirname, 'public',"index.html"));
+});
 
 
-app.use('/', indexRouter);
+// app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/table', tableRouter);
 // catch 404 and forward to error handler
